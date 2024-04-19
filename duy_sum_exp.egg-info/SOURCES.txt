@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+duy_sum_exp.egg-info/PKG-INFO
+duy_sum_exp.egg-info/SOURCES.txt
+duy_sum_exp.egg-info/dependency_links.txt
+duy_sum_exp.egg-info/top_level.txt
+src/__init__.py
+src/sum_exp.py
