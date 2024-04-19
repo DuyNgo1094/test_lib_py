@@ -1,2 +1,2 @@
-def sumDuyNgo(a, b):
+def sumDuy(a, b):
     return f"{a + b} Duy Ngo Dep Trai"

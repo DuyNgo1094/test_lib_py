@@ -1,1 +1,1 @@
-name = 'test_sum'
+from src.sumDuy import *
