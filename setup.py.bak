@@ -4,7 +4,7 @@ setuptools.setup(
     name="duy_sum_exp",
     version="0.0.1",
     author="Ngo Van Duy",
-    author_email="author@example.com",
+    author_email="duyngo@example.com",
     description="Sort description",
     long_description="Full description",
     long_description_content_type="text/markdown",

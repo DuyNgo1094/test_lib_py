@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name="duy_sum_exp",
+    name="duySumTest",
     version="0.0.1",
     author="Ngo Van Duy",
     author_email="duyngo@example.com",
