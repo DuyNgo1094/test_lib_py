@@ -32,11 +32,11 @@ jobs:
       - name: Build executable
         # run: pyinstaller --onedir app.py
 
-        run: pyinstaller --onefile --name app.exe app.py
+        run: pyinstaller --onedir --name app.exe app.py
       
       - name: List directory contents
         run: |
-          ls -l dist
+          ls -l dist/app
 
       # - name: Zip executable
       #   run: zip app.zip dist/app.exe
