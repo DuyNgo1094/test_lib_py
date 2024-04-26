@@ -37,8 +37,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         with:
-          tag_name: Version test  # Set your desired tag name for the release
-          release_name: Release v2  # Set your desired release name
+          tag_name: v2.0.0  # Set your desired tag name for the release
+          release_name: Release v2.0  # Set your desired release name
           body: |
             Release body v2
           draft: false
