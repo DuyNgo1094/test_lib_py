@@ -10,15 +10,16 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-    - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: version 1.0  # Set your desired tag name for the release
-          release_name: Release v1.0  # Set your desired release name
-          body: |
-            test body
-          draft: false
-          prerelease: false
+        - name: Create Release
+          id: create_release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: v1.0.0  # Specify the tag name for the release
+            release_name: Release v1.0.0  # Specify the release name
+            body: |
+              Release v1.0.0
+
+        - name: Get the URL of the created release
+          run: echo "The created release is at ${{ steps.create_release.outputs.upload_url }}"
