@@ -27,12 +27,12 @@ jobs:
       - name: Build executable
         # run: pyinstaller --onedir app.py
 
-        run: pyinstaller --onedir --name app.exe app.py
+        run: pyinstaller --onedir app.py
       
       # - name: Zip executable
       #   run: zip app.zip dist/app.exe
       - name: Zip dist folder
-        run: Compress-Archive -Path "dist" -DestinationPath "app.zip"
+        run: Compress-Archive -Path "dist\app" -DestinationPath "app.zip"
 
       - name: Create release
         id: create_release
