@@ -60,6 +60,7 @@ jobs:
       
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          ACTIONS_RUNNER_DEBUG: true
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./app.zip
