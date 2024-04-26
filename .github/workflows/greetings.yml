@@ -41,7 +41,7 @@ jobs:
       # - name: Zip executable
       #   run: zip app.zip dist/app.exe
       - name: Zip dist folder
-        run: zip -r app.zip dist
+        run: Compress-Archive -Path "dist/app" -DestinationPath "app.zip"
 
       - name: Create release
         id: create_release
