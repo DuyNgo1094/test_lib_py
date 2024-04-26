@@ -26,8 +26,10 @@ jobs:
         run: |
           ls -l dist
 
-      - name: Zip executable
-        run: zip app.zip dist/app.exe
+      # - name: Zip executable
+      #   run: zip app.zip dist/app.exe
+      - name: Zip dist folder
+        run: zip -r app.zip dist
 
       - name: Create release
         id: create_release
