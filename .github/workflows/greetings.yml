@@ -1,7 +1,9 @@
 name: Manual Release Workflow
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -25,7 +27,7 @@ jobs:
         run: pip install pyinstaller
         
       - name: install pywin32
-        run: pip install pywin32=222
+        run: pip install pywin32
         
       - name: Build executable
         # run: pyinstaller --onedir app.py
