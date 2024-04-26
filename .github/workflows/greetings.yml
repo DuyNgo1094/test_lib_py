@@ -17,11 +17,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-      - name: Upgrade Pip
-        run: pip install --upgrade pip
-      
-      # - name: Upgrade Pip
-      #   run: pip install -r requirements.txt
       
       - name: Install PyInstaller
         run: pip install pyinstaller
@@ -34,10 +29,6 @@ jobs:
 
         run: pyinstaller --onedir --name app.exe app.py
       
-      - name: List directory contents
-        run: |
-          ls -l dist/app
-
       # - name: Zip executable
       #   run: zip app.zip dist/app.exe
       - name: Zip dist folder
