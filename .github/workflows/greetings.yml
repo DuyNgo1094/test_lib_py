@@ -1,10 +1,10 @@
 name: Manual Release Workflow
 
 on:
-  workflow_dispatch:
-  #push:
-   # branches:
-     # - main
+  #workflow_dispatch:
+  push:
+    branches:
+      - main
  
 jobs:
   build:
@@ -44,10 +44,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         with:
-          tag_name: v2.0.3  # Set your desired tag name for the release
-          release_name: Release v2.3 # Set your desired release name
+          tag_name: v2.0.4  # Set your desired tag name for the release
+          release_name: Release v2.4 # Set your desired release name
           body: |
-            Release body v2.3
+            Release body v2.4
           draft: false
           prerelease: false
 
