@@ -2,9 +2,10 @@ name: Manual Release Workflow
 
 on:
   #workflow_dispatch:
+  # Trigger the workflow when a new tag is created
   push:
-    branches:
-      - main
+    tags:
+      - 'v*' # Match any tag that starts with 'v'
  
 jobs:
   build:
@@ -44,10 +45,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         with:
-          tag_name: v2.0.5  # Set your desired tag name for the release
-          release_name: Release v2.5 # Set your desired release name
+          tag_name: ${{ github.ref }} # refer to trigger event. In this case is version tag
+          release_name: Version ${{ github.ref }}
           body: |
-            Release body v2.5
+            Release ${{ github.ref }}:
           draft: false
           prerelease: false
 
