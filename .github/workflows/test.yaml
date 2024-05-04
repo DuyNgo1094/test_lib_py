@@ -26,5 +26,5 @@ jobs:
           tag_name: v${{ inputs.version }} 
           # note you'll typically need to create a personal access token
           # with permissions to create releases in the other repo
-          token: ${{ secrets.GITHUB_TOKEN }}.
+          token: ${{ secrets.PAT_TOKEN }}.
           # token: ${{ secrets.GITHUB_TOKEN }}
