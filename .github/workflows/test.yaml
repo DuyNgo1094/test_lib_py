@@ -1,0 +1,28 @@
+name: Release
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+        name:
+          # Friendly description to be shown in the UI instead of 'name'
+          description: version
+          # Default value if no value is explicitly provided
+          default: '1.1.0'
+          # Input has to be provided for the workflow to run
+          required: true
+          # The data type of the input
+          type: string
+jobs:
+  create-release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: taiki-e/create-gh-release-action@v1
+        with:
+          # (Optional) Path to changelog.
+          changelog: CHANGELOG.md
+          # (Required) GitHub token for creating GitHub Releases.
+          token: ${{ secrets.GITHUB_TOKEN }}
