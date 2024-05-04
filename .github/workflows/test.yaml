@@ -6,7 +6,7 @@ permissions:
 on:
   workflow_dispatch:
     inputs:
-        name:
+        version:
           # Friendly description to be shown in the UI instead of 'name'
           description: version
           # Default value if no value is explicitly provided
@@ -22,8 +22,8 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          body_path: ${{ github.workspace }}-CHANGELOG.txt
-          # tag: 
+          body_path: ${{ github.workspace }}-CHANGELOG.md
+          tag_name: v${{ inputs.version }} 
           # note you'll typically need to create a personal access token
           # with permissions to create releases in the other repo
           token: ${{ secrets.GITHUB_TOKEN }}.
