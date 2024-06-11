@@ -1,69 +1,12 @@
 name: Manual Release Workflow
 
 on:
-  #workflow_dispatch:
-  # Trigger the workflow when a new tag is created
-  push:
-    tags:
-      - 'v*' # Match any tag that starts with 'v'
+  workflow_dispatch 
  
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-          cache: pip
-      - name: install dependencies
-        run: pip install -r requirements.txt
-        
-      #- name: Install PyInstaller
-       # run: pip install pyinstaller
-        
-      #- name: install pywin32
-        #run: pip install pywin32
-        
-      - name: Build executable
-        # run: pyinstaller --onedir app.py
-
-        run: pyinstaller --onedir app.py
-      
-      # - name: Zip executable
-      #   run: zip app.zip dist/app.exe
-      - name: Zip dist folder
-        run: Compress-Archive -Path "dist\app" -DestinationPath "app.zip"
-
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }} # refer to trigger event. In this case is version tag
-          release_name: Version ${{ github.ref }}
-          body: |
-            Release ${{ github.ref }}:
-          draft: false
-          prerelease: false
-
-      - name: Upload release asset
-        uses: actions/upload-release-asset@v1
-
-      
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-          ACTIONS_RUNNER_DEBUG: true
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./app.zip
-          asset_name: app.zip
-          asset_content_type: application/zip
-
-      - name: Get the URL of the created release
-        run: echo "The created release is at ${{ steps.create_release.outputs.upload_url }}"
+      - name: run cmd
+        run: cmd /c "run.bat 3.0.0"
