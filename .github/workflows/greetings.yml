@@ -8,5 +8,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+        
       - name: run cmd
         run: cmd /c "run.bat 3.0.0"
