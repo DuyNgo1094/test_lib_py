@@ -1,7 +1,14 @@
 name: Manual Release Workflow
 
 on:
-  workflow_dispatch 
+  workflow_dispatch:
+      inputs:
+          version:
+              description: "version"
+              default: ''
+              type: string
+              
+          
  
 jobs:
   build:
@@ -14,4 +21,4 @@ jobs:
 
         
       - name: run cmd
-        run: cmd /c "run.bat 3.0.0"
+        run: cmd /c "run.bat "${{ inputs.version }}
